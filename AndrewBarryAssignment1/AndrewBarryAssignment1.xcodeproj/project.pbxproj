@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AFEB580D1D1AC62200F2208A /* AndrewBarryAssignment1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AndrewBarryAssignment1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFEB580D1D1AC62200F2208A /* Assignment1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFEB58101D1AC62200F2208A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFEB58121D1AC62200F2208A /* SimulationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationViewController.swift; sourceTree = "<group>"; };
 		AFEB58141D1AC62200F2208A /* InstrumentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentationViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		AFEB58041D1AC62200F2208A = {
 			isa = PBXGroup;
 			children = (
-				AFEB580F1D1AC62200F2208A /* AndrewBarryAssignment1 */,
+				AFEB580F1D1AC62200F2208A /* Assignment1 */,
 				AFEB580E1D1AC62200F2208A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,12 +48,12 @@
 		AFEB580E1D1AC62200F2208A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AFEB580D1D1AC62200F2208A /* AndrewBarryAssignment1.app */,
+				AFEB580D1D1AC62200F2208A /* Assignment1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AFEB580F1D1AC62200F2208A /* AndrewBarryAssignment1 */ = {
+		AFEB580F1D1AC62200F2208A /* Assignment1 */ = {
 			isa = PBXGroup;
 			children = (
 				AFEB58101D1AC62200F2208A /* AppDelegate.swift */,
@@ -64,15 +64,16 @@
 				AFEB581B1D1AC62300F2208A /* LaunchScreen.storyboard */,
 				AFEB581E1D1AC62300F2208A /* Info.plist */,
 			);
+			name = Assignment1;
 			path = AndrewBarryAssignment1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AFEB580C1D1AC62200F2208A /* AndrewBarryAssignment1 */ = {
+		AFEB580C1D1AC62200F2208A /* Assignment1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AFEB58211D1AC62300F2208A /* Build configuration list for PBXNativeTarget "AndrewBarryAssignment1" */;
+			buildConfigurationList = AFEB58211D1AC62300F2208A /* Build configuration list for PBXNativeTarget "Assignment1" */;
 			buildPhases = (
 				AFEB58091D1AC62200F2208A /* Sources */,
 				AFEB580A1D1AC62200F2208A /* Frameworks */,
@@ -82,9 +83,9 @@
 			);
 			dependencies = (
 			);
-			name = AndrewBarryAssignment1;
+			name = Assignment1;
 			productName = AndrewBarryAssignment1;
-			productReference = AFEB580D1D1AC62200F2208A /* AndrewBarryAssignment1.app */;
+			productReference = AFEB580D1D1AC62200F2208A /* Assignment1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +103,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AFEB58081D1AC62200F2208A /* Build configuration list for PBXProject "AndrewBarryAssignment1" */;
+			buildConfigurationList = AFEB58081D1AC62200F2208A /* Build configuration list for PBXProject "Assignment1" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -115,7 +116,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AFEB580C1D1AC62200F2208A /* AndrewBarryAssignment1 */,
+				AFEB580C1D1AC62200F2208A /* Assignment1 */,
 			);
 		};
 /* End PBXProject section */
@@ -255,10 +256,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = AndrewBarryAssignment1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Harvard.AndrewBarryAssignment1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = Harvard.Assignment1;
+				PRODUCT_NAME = Assignment1;
 			};
 			name = Debug;
 		};
@@ -266,17 +268,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = AndrewBarryAssignment1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Harvard.AndrewBarryAssignment1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = Harvard.Assignment1;
+				PRODUCT_NAME = Assignment1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AFEB58081D1AC62200F2208A /* Build configuration list for PBXProject "AndrewBarryAssignment1" */ = {
+		AFEB58081D1AC62200F2208A /* Build configuration list for PBXProject "Assignment1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AFEB581F1D1AC62300F2208A /* Debug */,
@@ -285,13 +288,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AFEB58211D1AC62300F2208A /* Build configuration list for PBXNativeTarget "AndrewBarryAssignment1" */ = {
+		AFEB58211D1AC62300F2208A /* Build configuration list for PBXNativeTarget "Assignment1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AFEB58221D1AC62300F2208A /* Debug */,
 				AFEB58231D1AC62300F2208A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

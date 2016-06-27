@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Lecture2
+//  AndrewBarryAssignment1
 //
 //  Created by Andrew Barry on 6/22/16.
 //  Copyright © 2016 Andrew Barry. All rights reserved.

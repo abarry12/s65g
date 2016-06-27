@@ -1,6 +1,6 @@
 //
-//  FirstViewController.swift
-//  Lecture2B
+//  SecondViewController.swift
+//  AndrewBarryAssignment1
 //
 //  Created by Andrew Barry on 6/22/16.
 //  Copyright © 2016 Andrew Barry. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class InstrumentationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
