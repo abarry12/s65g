@@ -167,15 +167,41 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="y9Q-Bh-bLu" firstAttribute="centerX" secondItem="XYT-OJ-LU9" secondAttribute="centerX" id="0Or-z9-Iqr"/>
-                                    <constraint firstItem="S3r-Ia-Yqa" firstAttribute="top" secondItem="y9Q-Bh-bLu" secondAttribute="bottom" id="Wbp-F0-Tw9"/>
-                                    <constraint firstItem="S3r-Ia-Yqa" firstAttribute="centerX" secondItem="XYT-OJ-LU9" secondAttribute="centerX" id="aoi-mo-oM8"/>
+                                    <constraint firstItem="y9Q-Bh-bLu" firstAttribute="centerX" secondItem="XYT-OJ-LU9" secondAttribute="centerX" priority="750" id="0Or-z9-Iqr"/>
+                                    <constraint firstItem="y9Q-Bh-bLu" firstAttribute="width" secondItem="XYT-OJ-LU9" secondAttribute="width" multiplier="0.5" id="0l6-zO-VJq"/>
+                                    <constraint firstItem="S3r-Ia-Yqa" firstAttribute="leading" secondItem="y9Q-Bh-bLu" secondAttribute="trailing" id="KYP-hV-Jnf"/>
+                                    <constraint firstItem="y9Q-Bh-bLu" firstAttribute="leading" secondItem="XYT-OJ-LU9" secondAttribute="leading" id="VaL-6c-J5n"/>
+                                    <constraint firstItem="S3r-Ia-Yqa" firstAttribute="top" secondItem="y9Q-Bh-bLu" secondAttribute="bottom" priority="750" id="Wbp-F0-Tw9"/>
+                                    <constraint firstItem="S3r-Ia-Yqa" firstAttribute="centerX" secondItem="XYT-OJ-LU9" secondAttribute="centerX" priority="750" id="aoi-mo-oM8"/>
                                     <constraint firstItem="S3r-Ia-Yqa" firstAttribute="width" secondItem="y9Q-Bh-bLu" secondAttribute="width" id="b8p-vT-taO"/>
+                                    <constraint firstItem="y9Q-Bh-bLu" firstAttribute="centerY" secondItem="XYT-OJ-LU9" secondAttribute="centerY" id="bOl-C4-Ptc"/>
+                                    <constraint firstItem="S3r-Ia-Yqa" firstAttribute="centerY" secondItem="XYT-OJ-LU9" secondAttribute="centerY" id="kaA-Zk-KTe"/>
                                     <constraint firstItem="S3r-Ia-Yqa" firstAttribute="height" secondItem="y9Q-Bh-bLu" secondAttribute="height" id="l7L-1A-Q8T"/>
-                                    <constraint firstItem="y9Q-Bh-bLu" firstAttribute="height" secondItem="XYT-OJ-LU9" secondAttribute="height" multiplier="0.5" id="s8O-Hh-FXa"/>
-                                    <constraint firstItem="y9Q-Bh-bLu" firstAttribute="top" secondItem="XYT-OJ-LU9" secondAttribute="top" id="uxK-y6-R0z"/>
-                                    <constraint firstItem="y9Q-Bh-bLu" firstAttribute="width" secondItem="XYT-OJ-LU9" secondAttribute="width" id="vFP-Ly-jsF"/>
+                                    <constraint firstItem="y9Q-Bh-bLu" firstAttribute="height" secondItem="XYT-OJ-LU9" secondAttribute="height" id="nnr-aP-2os"/>
+                                    <constraint firstItem="y9Q-Bh-bLu" firstAttribute="height" secondItem="XYT-OJ-LU9" secondAttribute="height" multiplier="0.5" priority="750" id="s8O-Hh-FXa"/>
+                                    <constraint firstItem="y9Q-Bh-bLu" firstAttribute="top" secondItem="XYT-OJ-LU9" secondAttribute="top" priority="750" id="uxK-y6-R0z"/>
+                                    <constraint firstItem="y9Q-Bh-bLu" firstAttribute="width" secondItem="XYT-OJ-LU9" secondAttribute="width" priority="750" id="vFP-Ly-jsF"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0l6-zO-VJq"/>
+                                        <exclude reference="VaL-6c-J5n"/>
+                                        <exclude reference="bOl-C4-Ptc"/>
+                                        <exclude reference="nnr-aP-2os"/>
+                                        <exclude reference="KYP-hV-Jnf"/>
+                                        <exclude reference="kaA-Zk-KTe"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="0l6-zO-VJq"/>
+                                        <include reference="VaL-6c-J5n"/>
+                                        <include reference="bOl-C4-Ptc"/>
+                                        <include reference="nnr-aP-2os"/>
+                                        <include reference="KYP-hV-Jnf"/>
+                                        <include reference="kaA-Zk-KTe"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
