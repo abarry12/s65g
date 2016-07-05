@@ -54,7 +54,6 @@ class Problem2ViewController: UIViewController {
     @IBAction func runButton(sender: AnyObject) {
         print("Button Clicked")
         textView.text = "Button Clicked"
-        
         var beforeCount = 0
         var afterCount = 0
         var neighbors: Int
@@ -74,6 +73,7 @@ class Problem2ViewController: UIViewController {
         for x in 0..<dimensions {
             for y in 0..<dimensions {
                 neighbors = cellNeighbors(dimensions, x: x, y: y, before: before)
+                
                 if before[x][y] == true {
                     switch neighbors {
                     case 2:

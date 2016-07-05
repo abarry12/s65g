@@ -104,14 +104,14 @@ func cellNeighbors (dimensions: Int, x: Int, y: Int, before: Array<Array<Bool>>)
                         }
                     }
                 }
-                else if j == -1 {
+                if j == -1 {
                     if (i != x || j != y) {
                         if before[x][y + (dims-1)] == true {
                             neighborCounter += 1
                         }
                     }
                 }
-                else if j == dims {
+                if j == dims {
                     if (i != x || j != y) {
                         if before[x][y - (dims-1)] == true {
                             neighborCounter += 1
@@ -120,7 +120,7 @@ func cellNeighbors (dimensions: Int, x: Int, y: Int, before: Array<Array<Bool>>)
                 }
             }
         }
-        else if i == -1 {
+        if i == -1 {
             for j in (y-1)...(y+1) {
                 if j >= 0 && j < dims {
                     if (i != x || j != y) {
@@ -129,14 +129,14 @@ func cellNeighbors (dimensions: Int, x: Int, y: Int, before: Array<Array<Bool>>)
                         }
                     }
                 }
-                else if j == -1 {
+                if j == -1 {
                     if (i != x || j != y) {
                         if before[x + (dims-1)][y + (dims-1)] == true {
                             neighborCounter += 1
                         }
                     }
                 }
-                else if j == dims {
+                if j == dims {
                     if (i != x || j != y) {
                         if before[x + (dims-1)][y - (dims-1)] == true {
                             neighborCounter += 1
@@ -145,7 +145,7 @@ func cellNeighbors (dimensions: Int, x: Int, y: Int, before: Array<Array<Bool>>)
                 }
             }
         }
-        else if i == dims {
+        if i == dims {
             for j in (y-1)...(y+1) {
                 if j >= 0 && j < dims {
                     if (i != x || j != y) {
@@ -154,14 +154,14 @@ func cellNeighbors (dimensions: Int, x: Int, y: Int, before: Array<Array<Bool>>)
                         }
                     }
                 }
-                else if j == -1 {
+                if j == -1 {
                     if (i != x || j != y) {
                         if before[x - (dims-1)][y + (dims-1)] == true {
                             neighborCounter += 1
                         }
                     }
                 }
-                else if j == dims {
+                if j == dims {
                     if (i != x || j != y) {
                         if before[x - (dims-1)][y - (dims-1)] == true {
                             neighborCounter += 1
