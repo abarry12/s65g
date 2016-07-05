@@ -13,7 +13,7 @@ let dimensions = 10
 var buttonClicks = false
 var before = Array(count: dimensions, repeatedValue: Array(count: dimensions, repeatedValue:false))
 var after = Array(count: dimensions, repeatedValue: Array(count: dimensions, repeatedValue:false))
-var livingCells = 0
+//var livingCells = 0
 
 
 
@@ -56,7 +56,7 @@ class Problem2ViewController: UIViewController {
         textView.text = "Button Clicked"
         var beforeCount = 0
         var afterCount = 0
-        var neighbors: Int
+        //var neighbors: Int
         
         for x in 0..<dimensions {
             for y in 0..<dimensions {
@@ -70,12 +70,96 @@ class Problem2ViewController: UIViewController {
             }
         }
         
+        var neighborCounter = 0
+        let dims = dimensions
+        //let array: Array<Array<Bool>> = before
+        
+        
         for x in 0..<dimensions {
             for y in 0..<dimensions {
-                neighbors = cellNeighbors(dimensions, x: x, y: y, before: before)
+                //neighborCounter = cellNeighbors(dimensions, x: x, y: y, before: before)
+                
+                for i in (x-1)...(x+1) {
+                    if i >= 0 && i < dims {
+                        for j in (y-1)...(y+1) {
+                            if j >= 0 && j < dims {
+                                if (i != x || j != y) {
+                                    if before[x][y] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == -1 {
+                                if (i != x || j != y) {
+                                    if before[x][y + (dims-1)] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == dims {
+                                if (i != x || j != y) {
+                                    if before[x][y - (dims-1)] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if i == -1 {
+                        for j in (y-1)...(y+1) {
+                            if j >= 0 && j < dims {
+                                if (i != x || j != y) {
+                                    if before[x + (dims-1)][y] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == -1 {
+                                if (i != x || j != y) {
+                                    if before[x + (dims-1)][y + (dims-1)] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == dims {
+                                if (i != x || j != y) {
+                                    if before[x + (dims-1)][y - (dims-1)] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if i == dims {
+                        for j in (y-1)...(y+1) {
+                            if j >= 0 && j < dims {
+                                if (i != x || j != y) {
+                                    if before[x - (dims-1)][y] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == -1 {
+                                if (i != x || j != y) {
+                                    if before[x - (dims-1)][y + (dims-1)] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == dims {
+                                if (i != x || j != y) {
+                                    if before[x - (dims-1)][y - (dims-1)] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
                 
                 if before[x][y] == true {
-                    switch neighbors {
+                    switch neighborCounter {
                     case 2:
                         after[x][y] = true
                         afterCount += 1
@@ -87,7 +171,7 @@ class Problem2ViewController: UIViewController {
                     }
                 }
                 else {
-                    switch neighbors {
+                    switch neighborCounter {
                     case 3:
                         after[x][y] = true
                         afterCount += 1
@@ -127,12 +211,13 @@ class Problem3ViewController: UIViewController {
         //let livingCells = beforeArray(dimensions)
         //textView.text = "There are \(livingCells.trueCount) living cells!"
         
-        let functionRun = buttonPush(dimensions, buttonClicks: buttonClicks, before: before)
-        buttonClicks = functionRun.0
-        before = functionRun.array
-        livingCells = functionRun.trueCount
-        textView.text = "There are \(livingCells) living cells!"
-        after = before
+        let functionRun = step(before)
+        //buttonClicks = functionRun.0
+        after = functionRun.after
+        let livingCellsBefore = functionRun.trueCountBefore
+        let livingCellsAfter = functionRun.trueCountAfter
+        textView.text = "There are \(livingCellsBefore) living cells before. \r\n There are \(livingCellsAfter) living cells after."
+        //before = after
     }
     
     
@@ -155,6 +240,11 @@ class Problem4ViewController: UIViewController {
     @IBAction func runButton(sender: AnyObject) {
     print("Button Clicked")
     textView.text = "Button Clicked"
+    let functionRun = step2(before)
+    after = functionRun.after
+    let livingCellsBefore = functionRun.trueCountBefore
+    let livingCellsAfter = functionRun.trueCountAfter
+    textView.text = "There are \(livingCellsBefore) living cells before. \r\n There are \(livingCellsAfter) living cells after."
     }
     
     
