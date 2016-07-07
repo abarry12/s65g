@@ -9,6 +9,166 @@
 import Foundation
 import UIKit
 
+func step (array: Array<Array<Bool>>) -> (Array<Array<Bool>>, textView: String) {
+    let dimensions = 10
+    var beforeCount = 0
+    var afterCount = 0
+    var before = array
+    var after = array
+        
+        for x in 0..<dimensions {
+            for y in 0..<dimensions {
+                if arc4random_uniform(3) == 1 {
+                    before[x][y] = true
+                    beforeCount += 1
+                }
+                else {
+                    before[x][y] = false
+                }
+            }
+        }
+        
+        //let dims = dimensions
+        //let array: Array<Array<Bool>> = before
+        
+        for x in 0..<dimensions {
+            for y in 0..<dimensions {
+                //neighborCounter = cellNeighbors(dimensions, x: x, y: y, before: before)
+                
+                var neighborCounter = 0
+                
+                for i in (x-1)...(x+1) {
+                    if i == ((x+9)%10) {
+                        for j in (y-1)...(y+1) {
+                            if j == ((y+9)%10) {
+                                if (i != x || j != y) {
+                                    if before[(x+9)%10][(y+9)%10] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == ((y+1)%10) {
+                                if (i != x || j != y) {
+                                    if before[(x+9)%10][(y+1)%10] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == y {
+                                if (i != x || j != y) {
+                                    if before[(x+9)%10][y] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if i == ((x+1)%10) {
+                        for j in (y-1)...(y+1) {
+                            if j == ((y+9)%10) {
+                                if (i != x || j != y) {
+                                    if before[(x+1)%10][(y+9)%10] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == ((y+1)%10) {
+                                if (i != x || j != y) {
+                                    if before[(x+1)%10][(y+1)%10] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == y {
+                                if (i != x || j != y) {
+                                    if before[(x+1)%10][y] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if i == x {
+                        for j in (y-1)...(y+1) {
+                            if j == ((y+9)%10) {
+                                if (i != x || j != y) {
+                                    if before[x][(y+9)%10] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == ((y+1)%10) {
+                                if (i != x || j != y) {
+                                    if before[x][(y+1)%10] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == y {
+                                if (i != x || j != y) {
+                                    if before[x][y] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                
+                if before[x][y] == true {
+                    switch neighborCounter {
+                    case 2:
+                        after[x][y] = true
+                        afterCount += 1
+                    case 3:
+                        after[x][y] = true
+                        afterCount += 1
+                    default:
+                        after[x][y] = false
+                    }
+                }
+                else {
+                    switch neighborCounter {
+                    case 3:
+                        after[x][y] = true
+                        afterCount += 1
+                    default:
+                        after[x][y] = false
+                    }
+                }
+                
+            }
+        }
+        
+        print("----------")
+        
+        for x in 0..<dimensions {
+            var output = ""
+            for y in 0..<dimensions {
+                output = output.stringByAppendingString(" ")
+                output = output.stringByAppendingString(before[x][y] == true ? "1" : "0")
+            }
+            print(output)
+        }
+        
+        print("----------")
+        
+        for x in 0..<dimensions {
+            var output = ""
+            for y in 0..<dimensions {
+                output = output.stringByAppendingString(" ")
+                output = output.stringByAppendingString(after[x][y] == true ? "1" : "0")
+            }
+            print(output)
+        }
+        
+        let textView = "There are \(beforeCount) living cells before. \r\n There are \(afterCount) living cells after."
+    return (after, textView)
+    }
+
+
+
 /*
 func buttonClick (dimensions: Int, buttonClicks: Bool, before: Array<Array<Bool>>) -> (Bool, array: Array<Array<Bool>>, trueCount: Int) {
     //var buttonClick: Bool = false
@@ -30,149 +190,9 @@ func buttonClick (dimensions: Int, buttonClicks: Bool, before: Array<Array<Bool>
 }
 */
 
-func step (array: Array<Array<Bool>>) -> (after: Array<Array<Bool>>, trueCountBefore: Int, trueCountAfter: Int) {
-    let dimensions = 10
-    let dims = dimensions
-    var before = array
-    var after = Array(count: dimensions, repeatedValue: Array(count: dimensions, repeatedValue:false))
-    
-    //func beforeArray (dimensions: Int, array: Array<Array<Bool>>) -> (before: Array<Array<Bool>>, trueCount: Int) {
-    
-    //var before = Array(count: dimensions, repeatedValue: Array(count: dimensions, repeatedValue:false))
-    var trueCountBefore = 0
-    
-    for x in 0..<dimensions {
-        for y in 0..<dimensions {
-            if arc4random_uniform(3) == 1 {
-                before[x][y] = true
-                trueCountBefore += 1
-            }
-            else {
-                before[x][y] = false
-            }
-        }
-    }
-    //    return (before, trueCount)
-    //}
-    
-    //func afterArray (dimensions: Int, before: Array<Array<Bool>>) -> (after: Array<Array<Bool>>, trueCount: Int) {
-    
-    //after = before
-    var trueCountAfter = 0
-    //var neighbors: Int
-    var neighborCounter = 0
-    
-    
-    for x in 0..<dimensions {
-        for y in 0..<dimensions {
-            for i in (x-1)...(x+1) {
-                if i >= 0 && i < dims {
-                    for j in (y-1)...(y+1) {
-                        if j >= 0 && j < dims {
-                            if (i != x || j != y) {
-                                if before[x][y] == true {
-                                    neighborCounter += 1
-                                }
-                            }
-                        }
-                        if j == -1 {
-                            if (i != x || j != y) {
-                                if before[x][y + (dims-1)] == true {
-                                    neighborCounter += 1
-                                }
-                            }
-                        }
-                        if j == dims {
-                            if (i != x || j != y) {
-                                if before[x][y - (dims-1)] == true {
-                                    neighborCounter += 1
-                                }
-                            }
-                        }
-                    }
-                }
-                if i == -1 {
-                    for j in (y-1)...(y+1) {
-                        if j >= 0 && j < dims {
-                            if (i != x || j != y) {
-                                if before[x + (dims-1)][y] == true {
-                                    neighborCounter += 1
-                                }
-                            }
-                        }
-                        if j == -1 {
-                            if (i != x || j != y) {
-                                if before[x + (dims-1)][y + (dims-1)] == true {
-                                    neighborCounter += 1
-                                }
-                            }
-                        }
-                        if j == dims {
-                            if (i != x || j != y) {
-                                if before[x + (dims-1)][y - (dims-1)] == true {
-                                    neighborCounter += 1
-                                }
-                            }
-                        }
-                    }
-                }
-                if i == dims {
-                    for j in (y-1)...(y+1) {
-                        if j >= 0 && j < dims {
-                            if (i != x || j != y) {
-                                if before[x - (dims-1)][y] == true {
-                                    neighborCounter += 1
-                                }
-                            }
-                        }
-                        if j == -1 {
-                            if (i != x || j != y) {
-                                if before[x - (dims-1)][y + (dims-1)] == true {
-                                    neighborCounter += 1
-                                }
-                            }
-                        }
-                        if j == dims {
-                            if (i != x || j != y) {
-                                if before[x - (dims-1)][y - (dims-1)] == true {
-                                    neighborCounter += 1
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            if before[x][y] == true {
-                switch neighborCounter {
-                case 2:
-                    after[x][y] = true
-                    trueCountAfter += 1
-                case 3:
-                    after[x][y] = true
-                    trueCountAfter += 1
-                default:
-                    after[x][y] = false
-                }
-            }
-            else {
-                switch neighborCounter {
-                case 3:
-                    after[x][y] = true
-                    trueCountAfter += 1
-                default:
-                    after[x][y] = false
-                }
-            }
-            
-        }
-    }
-    
-    return (after, trueCountBefore, trueCountAfter)
-}
 
-
-
-func step2 (array: Array<Array<Bool>>) -> (after: Array<Array<Bool>>, trueCountBefore: Int, trueCountAfter: Int) {
+func step2 (array: Array<Array<Bool>>) -> (after: Array<Array<Bool>>, textView: String) {
+    
     let dimensions = 10
     var before = array
     var after = Array(count: dimensions, repeatedValue: Array(count: dimensions, repeatedValue:false))
@@ -180,26 +200,24 @@ func step2 (array: Array<Array<Bool>>) -> (after: Array<Array<Bool>>, trueCountB
 //func beforeArray (dimensions: Int, array: Array<Array<Bool>>) -> (before: Array<Array<Bool>>, trueCount: Int) {
     
     //var before = Array(count: dimensions, repeatedValue: Array(count: dimensions, repeatedValue:false))
-    var trueCountBefore = 0
+    var beforeCount = 0
     
     for x in 0..<dimensions {
         for y in 0..<dimensions {
             if arc4random_uniform(3) == 1 {
                 before[x][y] = true
-                trueCountBefore += 1
+                beforeCount += 1
             }
             else {
                 before[x][y] = false
             }
         }
     }
-//    return (before, trueCount)
-//}
 
 //func afterArray (dimensions: Int, before: Array<Array<Bool>>) -> (after: Array<Array<Bool>>, trueCount: Int) {
     
     after = before
-    var trueCountAfter = 0
+    var afterCount = 0
     var neighbors: Int
     
     for x in 0..<dimensions {
@@ -209,10 +227,10 @@ func step2 (array: Array<Array<Bool>>) -> (after: Array<Array<Bool>>, trueCountB
                 switch neighbors {
                 case 2:
                     after[x][y] = true
-                    trueCountAfter += 1
+                    afterCount += 1
                 case 3:
                     after[x][y] = true
-                    trueCountAfter += 1
+                    afterCount += 1
                 default:
                     after[x][y] = false
                 }
@@ -221,7 +239,7 @@ func step2 (array: Array<Array<Bool>>) -> (after: Array<Array<Bool>>, trueCountB
                 switch neighbors {
                 case 3:
                     after[x][y] = true
-                    trueCountAfter += 1
+                    afterCount += 1
                 default:
                     after[x][y] = false
                 }
@@ -230,92 +248,94 @@ func step2 (array: Array<Array<Bool>>) -> (after: Array<Array<Bool>>, trueCountB
         }
     }
     
-    return (after, trueCountBefore, trueCountAfter)
+    let textView = "There are \(beforeCount) living cells before. \r\n There are \(afterCount) living cells after."
+    return (after, textView)
+
 }
 
 
 func cellNeighbors (dimensions: Int, x: Int, y: Int, before: Array<Array<Bool>>) -> (Int) {
     
     var neighborCounter = 0
-    let dims = dimensions
-    //let array: Array<Array<Bool>> = before
     
-    for i in (x-1)...(x+1) {
-        if i >= 0 && i < dims {
-            for j in (y-1)...(y+1) {
-                if j >= 0 && j < dims {
-                    if (i != x || j != y) {
-                        if before[x][y] == true {
-                            neighborCounter += 1
+                for i in (x-1)...(x+1) {
+                    if i == ((x+9)%10) {
+                        for j in (y-1)...(y+1) {
+                            if j == ((y+9)%10) {
+                                if (i != x || j != y) {
+                                    if before[(x+9)%10][(y+9)%10] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == ((y+1)%10) {
+                                if (i != x || j != y) {
+                                    if before[(x+9)%10][(y+1)%10] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == y {
+                                if (i != x || j != y) {
+                                    if before[(x+9)%10][y] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if i == ((x+1)%10) {
+                        for j in (y-1)...(y+1) {
+                            if j == ((y+9)%10) {
+                                if (i != x || j != y) {
+                                    if before[(x+1)%10][(y+9)%10] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == ((y+1)%10) {
+                                if (i != x || j != y) {
+                                    if before[(x+1)%10][(y+1)%10] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == y {
+                                if (i != x || j != y) {
+                                    if before[(x+1)%10][y] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if i == x {
+                        for j in (y-1)...(y+1) {
+                            if j == ((y+9)%10) {
+                                if (i != x || j != y) {
+                                    if before[x][(y+9)%10] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == ((y+1)%10) {
+                                if (i != x || j != y) {
+                                    if before[x][(y+1)%10] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
+                            if j == y {
+                                if (i != x || j != y) {
+                                    if before[x][y] == true {
+                                        neighborCounter += 1
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-                if j == -1 {
-                    if (i != x || j != y) {
-                        if before[x][y + (dims-1)] == true {
-                            neighborCounter += 1
-                        }
-                    }
-                }
-                if j == dims {
-                    if (i != x || j != y) {
-                        if before[x][y - (dims-1)] == true {
-                            neighborCounter += 1
-                        }
-                    }
-                }
-            }
-        }
-        if i == -1 {
-            for j in (y-1)...(y+1) {
-                if j >= 0 && j < dims {
-                    if (i != x || j != y) {
-                        if before[x + (dims-1)][y] == true {
-                            neighborCounter += 1
-                        }
-                    }
-                }
-                if j == -1 {
-                    if (i != x || j != y) {
-                        if before[x + (dims-1)][y + (dims-1)] == true {
-                            neighborCounter += 1
-                        }
-                    }
-                }
-                if j == dims {
-                    if (i != x || j != y) {
-                        if before[x + (dims-1)][y - (dims-1)] == true {
-                            neighborCounter += 1
-                        }
-                    }
-                }
-            }
-        }
-        if i == dims {
-            for j in (y-1)...(y+1) {
-                if j >= 0 && j < dims {
-                    if (i != x || j != y) {
-                        if before[x - (dims-1)][y] == true {
-                            neighborCounter += 1
-                        }
-                    }
-                }
-                if j == -1 {
-                    if (i != x || j != y) {
-                        if before[x - (dims-1)][y + (dims-1)] == true {
-                            neighborCounter += 1
-                        }
-                    }
-                }
-                if j == dims {
-                    if (i != x || j != y) {
-                        if before[x - (dims-1)][y - (dims-1)] == true {
-                            neighborCounter += 1
-                        }
-                    }
-                }
-            }
-        }
-    }
+    
     return neighborCounter
 }
+
