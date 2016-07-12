@@ -259,7 +259,7 @@ class Problem4ViewController: UIViewController {
         print("Button Clicked")
         textView.text = "Button Clicked"
         
-        let functionRun = step(before)
+        let functionRun = step2(before)
         //buttonClicks = functionRun.0
         after = functionRun.0
         textView.text = functionRun.textView

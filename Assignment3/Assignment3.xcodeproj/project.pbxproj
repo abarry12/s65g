@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF0AA6601D3302F000ADAA2B /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0AA65F1D3302F000ADAA2B /* Engine.swift */; };
 		AF3012FD1D2D73F200E943C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3012FC1D2D73F200E943C2 /* AppDelegate.swift */; };
 		AF3012FF1D2D73F200E943C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3012FE1D2D73F200E943C2 /* ViewController.swift */; };
 		AF3013021D2D73F200E943C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3013001D2D73F200E943C2 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF0AA65F1D3302F000ADAA2B /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		AF3012F91D2D73F200E943C2 /* Assignment3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF3012FC1D2D73F200E943C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF3012FE1D2D73F200E943C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				AF3012FC1D2D73F200E943C2 /* AppDelegate.swift */,
 				AF3012FE1D2D73F200E943C2 /* ViewController.swift */,
 				AF3013001D2D73F200E943C2 /* Main.storyboard */,
+				AF0AA65F1D3302F000ADAA2B /* Engine.swift */,
 				AF30130E1D2D864D00E943C2 /* GridView.swift */,
 				AF3013031D2D73F200E943C2 /* Assets.xcassets */,
 				AF3013051D2D73F200E943C2 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF3012FF1D2D73F200E943C2 /* ViewController.swift in Sources */,
+				AF0AA6601D3302F000ADAA2B /* Engine.swift in Sources */,
 				AF30130F1D2D864E00E943C2 /* GridView.swift in Sources */,
 				AF3012FD1D2D73F200E943C2 /* AppDelegate.swift in Sources */,
 			);
@@ -292,6 +296,7 @@
 				AF30130D1D2D73F200E943C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
